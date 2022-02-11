@@ -1,0 +1,316 @@
+<p align="center">
+    <img width="25%" src="https://i.imgur.com/MXOQX1z.png" alt="Banner">
+</p>
+<p align="center">
+    <b><a href="https://www.quora.com/Why-does-The-Economist-sometimes-have-separate-headlines-for-the-same-article-on-print-and-digital">Fly Title</a></b>
+</p>
+
+<p align="center">
+    <a href="https://github.com/mattrohr/repository-template/actions?query=workflow%3Abuild">
+    <img src="https://github.com/mattrohr/repository-template/workflows/build/badge.svg?branch=main" alt="Build Status Badge">
+    </a>
+</p>
+
+***
+
+<p align="center">
+    <a href="https://addons.mozilla.org/addon/"><img src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png" alt="Get repository-template for Firefox"></a>
+    <a href="https://chrome.google.com/webstore/detail"><img src="https://user-images.githubusercontent.com/585534/107280622-91a8ea80-6a26-11eb-8d07-77c548b28665.png" alt="Get repository-template for Chromium"></a>
+    <a href="https://microsoftedge.microsoft.com/addons/detail/"><img src="https://user-images.githubusercontent.com/585534/107280673-a5ece780-6a26-11eb-9cc7-9fa9f9f81180.png" alt="Get repository-template for Microsoft Edge"></a>
+</p>
+
+<p align="center">
+  <a href="https://itunes.apple.com/us/app/"><img alt="Download on the App Store" title="App Store" src="http://i.imgur.com/0n2zqHD.png" width="140"></a>
+  <a href="https://play.google.com/store/apps/"><img alt="Get it on Google Play" title="Google Play" src="http://i.imgur.com/mtGRPuM.png" width="140"></a>
+</p>
+
+<p align="center">
+    <a href="https://buy.stripe.com/"><img src="https://i.imgur.com/5VIOCTW.png" alt="Buy Now" width=25% height=25%></a>
+</p>
+
+<p align="center">
+    <b><a href="http://colab.research.google.com/">Interactive Demo</a></b>
+</p>
+
+***
+
+## About
+
+This repository is a template for future hardware and software projects. My project documentation used to be barren, and suffered from a pervasive mentality of "as long as someone can _eventually_ figure out what I'm saying, then it's good enough." This is a framework to prevent that. You'll rarely want such a verbose README. Select portions relevant to your scope and audience then scrap the rest.
+
+<img align="right" width="40%" src="https://i.imgur.com/8yo74NE.png" alt="image of apparatus or example results">
+
+_for the description in the top-right, it's not always possible to explain all your project does. Just describe one main feature. One concrete example is more salient and easier to understand to a would-be user than an abstraction._
+
+- _High level overview_
+    - What was the motivation?
+    - Why build this project?
+    - What problem does it solve?
+    - What are current approaches to this problem, their drawbacks, or why is this problem only solvable now?
+    - How it works (e.g. data flow, state diagram)
+    - Notable features
+    - How it's organized:
+<details>
+
+**<summary>Repository Structure Dropdown (output from ```tree -L 3```)</summary>**
+
+```
+├── LICENSE.md
+├── README.md
+├── .git/                                      <-- Version control information
+├── .github/                                   <-- Configuration files like for automatically running src/tests on pushes and pull requests
+├── data/                                      <-- Sample data, stored on Dropbox.com
+│   ├── demo/                                  <-- Demo data called by the demo.py analysis program
+│   ├── external/                              <-- Data from collaborators, internet, etc
+│   │   ├── README.md                          <-- Data source details like website, collaborator name
+│   │   └── YYYYMMDD-subject/
+│   ├── final/
+│   │   └── YYYYMMDD-subject/                  <-- Finished data called by the main.py analysis program
+│   ├── interim/                               <-- Processed data broken into sequential steps
+│   │   ├── 1-Renamed-YYYYMMDD-subject/        <-- Results from first step in data conveyor belt
+│   │   ├── 2-Cleaned-YYYYMMDD-subject/        <-- Results from second step in data conveyor belt
+│   │   ├── 3-Filtered-YYYYMMDD-subject/       <-- Results from third step in data conveyor belt
+│   │   └── n-TBD-YYYYMMDD-subject             <-- Results from nth step in data conveyor belt
+│   └── raw/                                   <-- Raw, unchanged, read-only data. Seperated by data category (e.g., chronological, machine/sensor type, experiment, geographic location, human subject, learning model, etc.)
+│       ├── README.md                          <-- Experiment log including collector, time, location, data columns, units
+│       └── YYYYMMDD-subject/
+├── docs/                                      <-- All figures and logs from main.py, assets for this README, and additional documentaiton
+│   ├── README.md
+│   ├── BOM.numbers                            <-- Bill of Materials for hardware, PCB, setup procedure
+│   ├── figures/                               <-- Figures generated by main.py and src/sandbox/
+│   ├── images/                                <-- Photos and video, like of apparatus and methods
+│   ├── notebook/                              <-- Lab notebook with methods, observations, locations, dates, comments, experiments (repeat, redone with different parameters, new method, etc)
+│   └── reports/                               <-- Logs generated by main.py
+├── hardware/
+│   ├── CAD/                                   <-- Mechanical enclosures/parts/fasteners/mechanisms/etc
+│   │   ├── component-1
+│   │   └── component-n
+│   └── PCB/
+│       ├── KiCad/                             <-- Printed Circut Board design file
+│       ├── gerber/                            <-- Printed Circut Board design file for manufacture
+│       └── panelized/                         <-- Printed Circut Board design file for bulk manufacture
+└── src/                                       <-- All source code, including firmware
+    ├── demo/                                  <-- Usage examples
+    │   └── demo_1.py
+    │   └── demo_n.py
+    ├── main.py                                <-- **MAIN FUNCTION** that calls all actions like scripts/step_1.py
+    ├── scripts/                               <-- All scripts called by main.py
+    │   ├── step_1.py                          <-- Single-responsibility code like convert/clean/plot/download/etc
+    │   └── step_n.py
+    ├── requirements.txt                       <-- Python dependencies
+    ├── sandbox/                               <-- Unfinished scratch work, located on seperate git branch
+    ├── tests/
+    │   ├── Dockerfile                         <-- Automatically setup development environment
+    │   ├── test_1.py                          <-- Check performance, verify functionality (unit), verify components play nicely with each other (integration), verify if once broken feature is broken again (regression), etc
+    │   └── test_n.py
+    └── uninstall.sh                           <-- Remove any crud 
+```
+
+</details>
+
+If this is helpful in your work, please cite:
+
+    @misc{rohr2022repositorytemplate,
+      author = {Matthew Rohr},
+      title = {Repository Template},
+      year = {YYYY},
+      howpublished = {\url{https://github.com/mattrohr/repository-template}},
+      note = {commit xxxxxxx}
+    }
+
+If you like what I do, sponsor my work through <a href="https://github.com/sponsors/mattrohr"><img src="https://i.imgur.com/hgqTdEy.png" alt="GitHub Sponsors" width=15% height=15%></a> or <a href="https://www.patreon.com/mattrohr?fan_landing=true"><img src="https://i.imgur.com/f7LtPKW.png" alt="Patreon" width=15% height=15%></a>.
+
+## Installation
+_assume whoever is reading is a novice, and may like more guidance with explicit instructions_
+
+Hardware and software requirements like OS, chip architecture, circuits, components, sensors, controllers, effectors, and software licenses. Package manager and environment au du jour (e.g. `pip`, `homebrew`, software versions, package versions, Python `venv`, `virtualenv`).
+
+<p align="left">
+    <a href="https://pypi.python.org/pypi/repository-template">
+    <img src="https://img.shields.io/pypi/v/repository-template.svg" alt="PyPi Package">
+    </a>
+    <a href="https://pypi.python.org/pypi/repository-template">
+    <img src="https://img.shields.io/pypi/pyversions/repository-template.svg" alt="Compatible Python Versions">
+    </a>
+</p>
+
+For most users, who don't want to develop the repository-template code, installation should just be a matter of:
+```console
+pip install repository-template
+```
+
+The above option installs the latest released version. If you want access to the latest development version, the source code, example notebooks, and tests, you can install from source, by cloning and installing the GitHub repository:
+
+1. Clone this repository:
+```console
+git clone https://github.com/mattrohr/repository-template.git && cd repository-template/
+```
+
+2. (_optional, but recommended_) Make and activate a virtual environment to reduce dependency conflict:
+```console
+python3 -m venv venv && source venv/bin/activate
+```
+
+3. Install dependencies (```a```, ```b```, ```c```): 
+```console
+python3 install -r requirement.txt && brew install docker
+```
+
+4. Run the test suite:
+```console
+docker pull repository-template/standalone:1.6.3
+docker run -t -i -e repository-template_OPTS='-Drepository-template.setup.test.all -Drepository-template.hostname=0.0.0.0 -Drepository-template.auth.disabled -Drepository-template.verbose' -p 3025:3025 -p 3110:3110 -p 3143:3143 -p 3465:3465 -p 3993:3993 -p 3995:3995 repository-template/standalone:1.6.3
+```
+
+## Usage
+Options/flags, inputs, outputs:
+| Name | Description | Default |
+| --- | --- | --- |
+| `-f` | enforce name validation (e.g. first name, last name) | **(required)** |
+| `-v` | Give verbose output | false |
+| `-a` | Check all conditions | true |
+| `ignore_timeout` | maximum allowed timeout before retry | (empty) |
+| `tokens` | sign in credentials  | (empty) |
+| `timeout` | request timeout | 120 |
+
+## Example
+_the quickest way for a developer to see a digestible result, like:_
+
+Consider the following table, with a missing entry in an output column.
+
+| Name | Birthdate | Output |
+|---|---|---|
+| Naomi P. King | 1973 | N. King '73 |
+| Gorlov Tweedledie | 2000 | G. Tweedledie '00 |
+| Allie D. Buttersworth | 2022 | ? |
+
+Flash Fil infers intent and automatically fills in the missing entry with
+"A. Buttersworth '22".
+
+Perceptron Convergence Algorithm steps, variables, and parameters:
+```
+y(n) = actual response (quantized) d(n) = desired response
+μ = learning-rate parameter, a positive constant less than unity
+```
+
+Fast Independent Component Analysis implementation:
+```matlab
+W = rand(2,1) ;
+W = W/norm(W) ;
+t1 = zeros(1,d1*d2) ;
+t2 = zeros(2,d1*d2) ;
+a = 1.1 ;
+
+iteration = 5;
+for i = 1:iteration
+    i ;
+    W_old = W ;
+    t1 = tanh(a*W'*P) ;
+    t4 = a./(cosh(a*W'*P).*cosh(a*W'*P)) ;
+    t2(1,:) = P(1,:).*t1(1,:) ;
+    t2(2,:) = P(2,:).*t1(1,:) ;
+    t3 = (mean(t2'))' ;
+    t5 = mean(t4).*W ;
+    W  = t3 - t5 ;
+    W  = W/norm(W) ;
+    W_new = W ;
+    converg(i) =  abs(W_new'*W_old) ;
+    format long
+    converg(i)
+end
+
+V = W'*P ;
+Y = reshape(V,d1,d2);
+subplot(2,3,3) ;
+imshow(Y) ;
+title('ICA Output') ;
+imwrite(Y,'ICA-Output-1.png','png') ;
+```
+
+Run the Demo:
+```console
+python3 ./src/main.py
+```
+
+You'll end up with an image / result like this:
+
+<img align="center" width="50%" src="https://i.imgur.com/r8BnUw5.png" alt="Image of expected results showing xxx">
+
+More sophisticated examples are located in [src/demo/](./src/demo/).
+
+## Notes
+- Project status
+    - Active development? Is it stable? Do core features work?
+    - Still more to do, and this project is looking for a maintainer
+    - If development ceased, why? Is there a better alternative? Unforeseen and seemingly insurmountable problem? It's accomplished its goals?
+
+- Design process and decisions, especially non-trivial ones
+    - Our standard sort function performs a quick sort, but that does not preserve the order of items which we need here
+    - The obvious algorithm would be ABC but that fails here because x could be negative so we need the generalized form (Wikipedia link)
+    - Technology and technique selection and why (e.g. language choice)
+    - Alternative technologies and techniques and why not
+    - Nitty gritty of implementation
+    - Redundant technology/method to validate primary technology/method
+    - Explain what the tests test and why
+    - Describe evolution of prototypes ([thorough mechanical example](https://www.youtube.com/watch?v=ag_p8gayrTs))
+    - What you thought would work, but didn't, and why
+    - Problems encountered and how you solved them
+      - Whenever you run into a problem note it in the log
+        - Checked out the code but it gave error XYZ0123, turns out I first had to upgrade component C to version 1.2 or higher
+    - Performance metrics, design constraints, considerations like:
+        - Safety:
+            - security, privacy, consequences of failure modes, safety factor, consent
+        - Performance:
+            - accuracy, precision, speed, tolerance, response time, transfer rate, impact (e.g. what metrics do you have to support that you made the right decision)
+        - Signal:
+            - data (e.g. lossy/lossless format, compression, representative?, known bias), noise sources, [propagation of uncertainty](https://www.amazon.com/Introduction-Error-Analysis-Uncertainties-Measurements/dp/093570275X), error handling
+        - Material:
+            - material properties, temperature, toxicity, shelf life, weight/volume capacity
+        - Operation:
+            - system initialization (can be surprisingly tricky!), minimum number of operators, calibration, deployability, cross-platform compatibility, assembly/disassembly, installation/uninstallation, physical/electronic feedback (i.e. how easily can a user reason about its behavior when it's running), special handling, construction techniques, usability, reliability, repairability/maintainability (i.e. when things go wrong/preventative), adoptability (i.e. how transparent does the system, like machine learning algorithm, need to be in order to be adopted, what stakeholders need to sign off), accessibility, abilityability (how many -ability terms can you pad onto this considerations list before it gets weird?), location (e.g. presence of interfering ferrous material, change in ambient temperature and air pressure, magnetic field flux), planned lifetime, decay/consumables
+        - Economics:
+            - production: component sourcing, minimum order quantity, vendors, lead time, manufacturers, unit costs, gross margins, break even point,  total capital requirement
+            - market: customer acquisition costs, lifetime value of customer, how fast is market growing? Finding previous three metrics matter _way_ more than total market size. Market research, especially what insight do you know about getting a customer that an outsider (e.g. investor, competitor) doesn't? How many competitors?
+
+- Observations about the quality of the project
+    - This code can use some refactoring
+    - Did a quick implementation to get this to work but ABC would be better
+    - How do real-world results compare to initial expectations/prototype/simulation/theory. What accounts for the difference?
+
+- Limitations, caveats, issues that you would not want to formally record in an issue tracker
+    - Should make this method work for `x < 0`, but that's currently out of scope
+
+- To-do items / Roadmap / future directions
+    - [x] ~~feature 1~~
+    - [x] ~~performance optimizations~~
+    - [x] ~~feature 2~~
+    - [x] ~~rewrite~~
+    - [x] ~~feature 3~~
+    - [ ] feature 4
+    - [ ] feature 5
+
+- What did you learn?
+    - Results? Show and tell.
+    - Historical context 
+    - If nothing was discovered, significant limits have been established for future projects
+    - Amusing observations and stories of production
+
+- Helpful links
+    - Similar projects, even if they're not solving your same problem
+    - Further reading
+    - Links to alternative mediums describing this project (e.g. YouTube walkthrough, blogs, write-ups, podcasts, media interviews, journal/conference papers)
+    - Links to real world examples (e.g. if project is a module or GitHub Action and not a standalone project)
+
+- Contributing
+    - Issues / pull requests / séance prayers to bug world are welcome
+    - Good starter tasks and links to relevant issues/PRs
+  
+If you have questions, feel free to email Matt ([mattrohrbusiness.138@gmail.com](mailto:mattrohrbusiness+repository-template@gmail.com)). This address is periodically changed to reduce spam.
+
+## Acknowledgements
+We thank:
+- [Sam Brand](https://github.com/samthebrand) for his [stackexchange.com answer](https://softwareengineering.stackexchange.com/a/250736)
+
+- [George Sun](https://mitcommlab.mit.edu/be/fellows_staff/george-sun-2/), [David Larson](https://mitcommlab.mit.edu/be/fellows_staff/david-larson/), [Diana Chien](https://mitcommlab.mit.edu/be/fellows_staff/diana-chien-2/), and others at the [MIT Communication Lab](https://mitcommlab.mit.edu/be/) for their [CommKit](https://mitcommlab.mit.edu/be/use-the-commkit/), specifically their [documentation best practices](https://mitcommlab.mit.edu/be/commkit/best-practices-for-coding-organization-and-documentation/), which provides refreshingly clear repository structure advice
+
+- Contributors, beta testers, people who provided feedback, people who made development more enjoyable or less painful or possible, authors of tutorials followed, individuals who inspired this project, individuals whose assets you used (e.g. photos, libraries), etc
