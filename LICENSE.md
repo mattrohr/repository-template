@@ -1,6 +1,6 @@
 # License
 
-Copyright (c) 2022 Matt Rohr (mattrohr.com).
+Copyright (c) Matt Rohr (mattrohr.com).
 
 All the content in this repository, including but not limited to source code, data, notes, and images is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
